@@ -1,10 +1,12 @@
 :root {
   --content-font: 'Abyssinica SIL', sans-serif;
+  --border-radius: 4px;
 }
 
 body {
- font-family: var(--content-font);
- background-color: var(--sand-9);
+  font-family: var(--content-font);
+  background-image: var(--gradient-15);
+  background-size: cover;
 }
 
 .parent {
@@ -19,23 +21,32 @@ body {
 }
 
 h1 {
-  color: var(--gray-6);
+  color: var(--gray-9);
+  font-family: var(--font-mono);
   text-align: center;
-  margin-top: 200px;
+  margin-top: 50px;
 }
 
 h2 {
-  color: var(--gray-5);
-  margin-top: 30px;
+  color: var(--gray-7);
+  margin-top: 10px;
 }
 
-span {
+ul {
+  width: 100%;
   margin-top: 30px;
+  padding: var(--size-3);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: var(--border-radius);
 }
 
-p {
-  color: var(--gray-4);
-  font-size: var(--size-fluid-2);
+li {
+  max-inline-size: max-content;
+  color: var(--gray-9);
+}
+
+li > h3 {
+  color: var(--gray-7);
 }
 
 a {
