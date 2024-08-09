@@ -1,54 +1,155 @@
 :root {
-  --content-font: 'Abyssinica SIL', sans-serif;
-  --border-radius: 4px;
+  --border-radius: var(--radius-2);
 }
 
 body {
-  font-family: var(--content-font);
+  box-sizing: border-box;
+  margin: 0;
+  font-family: var(--font-mono); 
+  color: var(--gray-0);
   background-image: var(--gradient-15);
   background-size: cover;
+  line-height: 1.5;
+  scroll-behavior: smooth;
 }
 
 .parent {
   display: grid;
   grid-template-columns: 1fr min(80ch, calc(100% - 16px)) 1fr;
   grid-column-gap: 8px;
-  place-items: center;
 }
 
 .parent > * {
   grid-column: 2;
 }
 
-h1 {
-  color: var(--gray-9);
-  font-family: var(--font-mono);
-  text-align: center;
-  margin-top: 50px;
+main {
+  margin-top: var(--size-fluid-3);
+  margin-bottom: var(--size-fluid-3);
 }
 
-h2 {
-  color: var(--gray-7);
-  margin-top: 10px;
+main > img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-drawn-5);
+}
+
+div:not(.parent) {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--gray-0);
+  padding: var(--size-fluid-2);
+  transform: scale(1);
+  transition: transform 0.3s;
+}
+
+div:not(.parent):hover {
+  transform: scale(1.05);
+}
+
+div.recent li::marker {
+  content: "✨";
+}
+
+div.nuiteq {
+  background-color: #483C68;
+}
+
+div.inmobi {
+  background-color: #0B4DCC;
+}
+
+div.project {
+  background-color: var(--orange-9);
+}
+
+div.side-project {
+  background-color: var(--pink-9);
+}
+
+div.responsibilities {
+  background-color: var(--lime-12);
 }
 
 ul {
-  width: 100%;
-  margin-top: 30px;
-  padding: var(--size-3);
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: var(--border-radius);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--size-fluid-4);
+
+  margin-bottom: var(--size-fluid-2);
 }
 
-li {
-  max-inline-size: max-content;
-  color: var(--gray-9);
+ul li) {
+  margin: var(--size-fluid-1) var(--size-fluid-2);
 }
 
-li > h3 {
-  color: var(--gray-7);
+ul li::before {
+  content: "\200B";
 }
 
 a {
-  margin-top: 30px;
+  color: var(--gray-0);
+  background-color: var(--blue-7);
+  border-radius: var(--border-radius);
+  padding: var(--size-fluid-1) var(--size-fluid-2);
+}
+
+h4 {
+  width: max-content;
+  background-color: var(--gray-0);
+  border-radius: var(--border-radius);
+  padding: var(--size-fluid-1) var(--size-fluid-2);
+  margin-bottom: var(--size-fluid-1);
+}
+
+.nuiteq > h4 {
+  color: #483C68;
+}
+
+.inmobi > h4 {
+  color: #0B4DCC;
+}
+
+:where(h1, h2) {
+  text-align: center;
+}
+
+:where(h1, h2, h4, h6, p, ol > li) {
+  max-inline-size: 100%;
+}
+
+h1 {
+  color: var(--gray-9);
+  margin-bottom: var(--size-fluid-3);
+}
+
+h3 {
+  color: var(--gray-9);
+  background-color: var(--teal-2);
+  border-radius: var(--border-radius);
+  text-align: center;
+  margin: auto;
+  border: 2px solid var(--gray-9);
+}
+
+p {
+  margin: var(--size-fluid-3);
+  color: var(--gray-4);
+}
+
+p > a {
+  display: inline-block;
+  margin-top: var(--size-fluid-3);
+}
+
+footer > p {
+  color: var(--gray-9);
 }
