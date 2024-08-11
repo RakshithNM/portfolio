@@ -29,7 +29,7 @@ main {
 }
 
 main > img {
-  width: 300px;
+  width: 200px;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
@@ -42,12 +42,6 @@ div:not(.parent) {
   border-radius: var(--border-radius);
   border: 2px solid var(--gray-0);
   padding: var(--size-fluid-2);
-  transform: scale(1);
-  transition: transform 0.3s;
-}
-
-div:not(.parent):hover {
-  transform: scale(1.05);
 }
 
 div.recent li::marker {
@@ -99,7 +93,7 @@ a {
   color: var(--gray-0);
   background-color: var(--blue-7);
   border-radius: var(--border-radius);
-  padding: var(--size-fluid-1) var(--size-fluid-2);
+  padding: 12px;
 }
 
 h4 {
