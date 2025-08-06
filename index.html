@@ -33,6 +33,7 @@
 				font-size: 100%;
 				background-color: rgb(35, 47, 62);
 				color: rgb(237, 242, 255);
+				height: 100%;
 			}
 			body {
 				box-sizing: border-box;
@@ -70,6 +71,9 @@
 				display: grid;
 				grid-template-columns: 1fr min(80ch, calc(100% - 16px)) 1fr;
 				grid-column-gap: 8px;
+				place-items: center;
+				height: 100vh;
+			}
 			}
 			.parent > * {
 				grid-column: 2;
