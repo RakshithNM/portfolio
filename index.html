@@ -29,6 +29,57 @@
     <link rel="canonical" href="https://rakshithnettar.com/">
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐙</text></svg>">
     <link rel="stylesheet" href="styles.css">
+		<style>
+			html {
+				font-size: 100%;
+			}
+			body {
+				box-sizing: border-box;
+				margin: 0;
+				line-height: 1.5;
+				scroll-behavior: smooth;
+				font-family: monospace;
+				font-size: clamp(1rem, 2.5vw, 1.25rem);
+			}
+			h1 {
+				font-size: clamp(2rem, 5vw, 3.5rem);
+				font-weight: 700;
+				line-height: 1.2;
+				margin: 1rem 0;
+			}
+			h3 {
+				font-size: clamp(1.25rem, 3vw, 2rem);
+				font-weight: 600;
+				line-height: 1.3;
+				margin: 0.75rem 0;
+			}
+			h4 {
+				font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+				font-weight: 500;
+				line-height: 1.4;
+				margin: 0.5rem 0;
+			}
+			.parent {
+				display: grid;
+				grid-template-columns: 1fr min(80ch, calc(100% - 16px)) 1fr;
+				grid-column-gap: 8px;
+			}
+			.parent > * {
+				grid-column: 2;
+			}
+			div:not(.parent) {
+				margin-bottom: 20px;
+				margin-top: 20px;
+			}
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				gap: 8px;
+				flex-wrap: wrap;
+			}
+		</style>
   </head>
   <body>
     <div class="parent">
