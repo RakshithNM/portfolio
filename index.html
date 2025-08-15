@@ -40,108 +40,108 @@
       })();
     </script>
     <style>
-:root {
-  --bg: #E3FAFC;
-  --fg: #252521;
-  --text-color-1: #3D4D04;
-  --text-color-3: #663500;
-  --text-color-4: #054D37;
-  --link-text-color: #1864AB;
-  color-scheme: light dark; /* allow either by default */
-}
-            @media (prefers-color-scheme: dark) {
-              :root {
-                --bg: rgb(35, 47, 62);
-                --fg: rgb(237, 242, 255);
-                --text-color-1: rgb(145, 167, 255);
-                --text-color-3: rgb(247, 202, 158);
-                --text-color-4: rgb(150, 242, 215);
-                --link-text-color: rgb(216, 245, 162);
-              }
-            }
-            /* User override wins over media query */
-            :root[data-theme="light"] {
-              --bg: #E3FAFC;
-              --fg: #252521;
-              --text-color-1: #3D4D04;
-              --text-color-3: #663500;
-              --text-color-4: #054D37;
-              --link-text-color: #1864AB;
-              color-scheme: light;
-            }
-            :root[data-theme="dark"]  {
-              --bg: rgb(35, 47, 62);
-              --fg: rgb(237, 242, 255);
-              --text-color-1: rgb(145, 167, 255);
-              --text-color-3: rgb(247, 202, 158);
-              --text-color-4: rgb(150, 242, 215);
-              --link-text-color: rgb(216, 245, 162);
-              color-scheme: dark;
-            }
-            html {
-              font-size: 100%;
-              background-color: var(--bg);
-              color: var(--fg);
-              height: 100%;
-            }
-            body {
-              box-sizing: border-box;
-              margin: 0;
-              line-height: 1.5;
-              scroll-behavior: smooth;
-              font-family: monospace;
-              font-size: clamp(1rem, 2.5vw, 1.25rem);
-            }
-            h1 {
-              font-size: clamp(2rem, 5vw, 3.5rem);
-              font-weight: 700;
-              line-height: 1.2;
-              margin: 1rem 0;
-              color: var(--text-color-1);
-            }
-            h3 {
-              font-size: clamp(1.25rem, 3vw, 2rem);
-              font-weight: 600;
-              line-height: 1.3;
-              margin: 0.75rem 0;
-              color: var(--text-color-3);
-            }
-            h4 {
-              font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-              font-weight: 500;
-              line-height: 1.4;
-              margin: 0.5rem 0;
-              color: var(--text-color-4);
-            }
-            a {
-              color: var(--link-text-color);
-            }
-            .parent {
-              display: grid;
-              grid-template-columns: 1fr min(80ch, calc(100% - 16px)) 1fr;
-              grid-column-gap: 8px;
-              place-items: center;
-              height: 100vh;
-            }
-            .parent > * {
-              grid-column: 2;
-            }
-            div:not(.parent) {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            }
-            ul {
-              list-style: none;
-              margin: 0;
-              padding: 0;
-              display: flex;
-              gap: 8px;
-              flex-wrap: wrap;
-            }
-            button {
-              font-size: clamp(1rem, 5vw, 1.5rem);
-            }
+      :root {
+        --bg: #E3FAFC;
+        --fg: #252521;
+        --text-color-1: #3D4D04;
+        --text-color-3: #663500;
+        --text-color-4: #054D37;
+        --link-text-color: #1864AB;
+        color-scheme: light dark; /* allow either by default */
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: rgb(35, 47, 62);
+          --fg: rgb(237, 242, 255);
+          --text-color-1: rgb(145, 167, 255);
+          --text-color-3: rgb(247, 202, 158);
+          --text-color-4: rgb(150, 242, 215);
+          --link-text-color: rgb(216, 245, 162);
+        }
+      }
+      /* User override wins over media query */
+      :root[data-theme="light"] {
+        --bg: #E3FAFC;
+        --fg: #252521;
+        --text-color-1: #3D4D04;
+        --text-color-3: #663500;
+        --text-color-4: #054D37;
+        --link-text-color: #1864AB;
+        color-scheme: light;
+      }
+      :root[data-theme="dark"]  {
+        --bg: rgb(35, 47, 62);
+        --fg: rgb(237, 242, 255);
+        --text-color-1: rgb(145, 167, 255);
+        --text-color-3: rgb(247, 202, 158);
+        --text-color-4: rgb(150, 242, 215);
+        --link-text-color: rgb(216, 245, 162);
+        color-scheme: dark;
+      }
+      html {
+        font-size: 100%;
+        background-color: var(--bg);
+        color: var(--fg);
+        height: 100%;
+      }
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        line-height: 1.5;
+        scroll-behavior: smooth;
+        font-family: monospace;
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+      }
+      h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 1rem 0;
+        color: var(--text-color-1);
+      }
+      h3 {
+        font-size: clamp(1.25rem, 3vw, 2rem);
+        font-weight: 600;
+        line-height: 1.3;
+        margin: 0.75rem 0;
+        color: var(--text-color-3);
+      }
+      h4 {
+        font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+        font-weight: 500;
+        line-height: 1.4;
+        margin: 0.5rem 0;
+        color: var(--text-color-4);
+      }
+      a {
+        color: var(--link-text-color);
+      }
+      .parent {
+        display: grid;
+        grid-template-columns: 1fr min(80ch, calc(100% - 16px)) 1fr;
+        grid-column-gap: 8px;
+        place-items: center;
+        height: 100vh;
+      }
+      .parent > * {
+        grid-column: 2;
+      }
+      div:not(.parent) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      button {
+        font-size: clamp(1rem, 5vw, 1.5rem);
+      }
     </style>
   </head>
   <body>
