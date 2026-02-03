@@ -6,19 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
     <meta name="author" content="Rakshith Nettar">
     <meta name="description" content="Rakshith Nettar">
-    <meta name="keywords" content="rakshith nettar,resume, projects, work experience, side projects">
-    <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#011627">
-    <meta name="color-scheme" content="dark">
+    <meta name="color-scheme" content="light dark">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rakshithnettar.com/">
-    <meta property="og:image:secure_url" content="https://rakshithnettar.com/meta.jpg">
     <meta property="og:image" content="https://rakshithnettar.com/meta.jpg">
     <meta property="og:title" content="RAKSHITH NETTAR">
     <meta property="og:description" content="Rakshith Nettar's portfolio">
     <meta property="og:site_name" content="Rakshith Nettar's portfolio">
     <meta property="og:locale" content="en_US">
-    <!-- Next tags are optional but recommended -->
     <meta property="og:image:width" content="1536">
     <meta property="og:image:height" content="1024">
     <meta name="twitter:card" content="summary">
@@ -28,113 +24,147 @@
     <meta name="twitter:title" content="Rakshith Nettar's portfolio">
     <meta name="twitter:description" content="Rakshith Nettar's work and projects">
     <meta name="twitter:image" content="https://rakshithnettar.com/meta.jpg">
-    <link rel="stylesheet" href="https://unpkg.com/open-props">
-    <link rel="stylesheet" href="https://unpkg.com/open-props/fonts.min.css" />
-    <!-- Helps prevent duplicate content issues -->
     <link rel="canonical" href="https://rakshithnettar.com/">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐙</text></svg>">
-    <!-- Set theme ASAP to avoid flash -->
     <script>
       (() => {
-        const key = 'theme';
-        const saved = localStorage.getItem(key);
-        const systemDark = matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = saved || (systemDark ? 'dark' : 'light');
-        document.documentElement.dataset.theme = theme;
-        document.documentElement.style.colorScheme = theme; // native form controls
+        const d = document.documentElement;
+        const m = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches : false;
+        let t;
+        try {
+          t = localStorage.getItem('theme');
+        } catch (e) {}
+        t = t || (m ? 'dark' : 'light');
+        d.dataset.theme = t;
+        d.style.colorScheme = t;
       })();
     </script>
     <style>
       :root {
-        --bg: #E3FAFC;
-        --fg: #252521;
-        --text-color-1: #3D4D04;
-        --text-color-3: #663500;
-        --text-color-4: #054D37;
-        --link-text-color: #1864AB;
-        color-scheme: light dark; /* allow either by default */
+        --bg: #f5f2ea;
+        --fg: #1c1b1a;
+        --panel: #fbf8f1;
+        --accent: #0b3d91;
+        --accent-2: #7c2d12;
+        --accent-3: #14532d;
+        --ring: #0ea5e9;
+        --shadow: rgba(15, 23, 42, 0.14);
+        --link-text-color: #0f766e;
+        color-scheme: light dark;
       }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg: rgb(35, 47, 62);
-          --fg: rgb(237, 242, 255);
-          --text-color-1: rgb(145, 167, 255);
-          --text-color-3: rgb(247, 202, 158);
-          --text-color-4: rgb(150, 242, 215);
-          --link-text-color: rgb(216, 245, 162);
-        }
-      }
-      /* User override wins over media query */
       :root[data-theme="light"] {
-        --bg: #E3FAFC;
-        --fg: #252521;
-        --text-color-1: #3D4D04;
-        --text-color-3: #663500;
-        --text-color-4: #054D37;
-        --link-text-color: #1864AB;
         color-scheme: light;
       }
-      :root[data-theme="dark"]  {
-        --bg: rgb(35, 47, 62);
-        --fg: rgb(237, 242, 255);
-        --text-color-1: rgb(145, 167, 255);
-        --text-color-3: rgb(247, 202, 158);
-        --text-color-4: rgb(150, 242, 215);
-        --link-text-color: rgb(216, 245, 162);
+      :root[data-theme="dark"] {
+        --bg: #0b1120;
+        --fg: #eef2ff;
+        --panel: #0f172a;
+        --accent: #93c5fd;
+        --accent-2: #fcd34d;
+        --accent-3: #6ee7b7;
+        --ring: #38bdf8;
+        --shadow: rgba(15, 23, 42, 0.6);
+        --link-text-color: #a7f3d0;
         color-scheme: dark;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme]) {
+          --bg: #0b1120;
+          --fg: #eef2ff;
+          --panel: #0f172a;
+          --accent: #93c5fd;
+          --accent-2: #fcd34d;
+          --accent-3: #6ee7b7;
+          --ring: #38bdf8;
+          --shadow: rgba(15, 23, 42, 0.6);
+          --link-text-color: #a7f3d0;
+        }
       }
       html {
         font-size: 100%;
         background-color: var(--bg);
         color: var(--fg);
-        height: 100%;
+        min-height: 100%;
       }
       body {
         box-sizing: border-box;
         margin: 0;
         line-height: 1.5;
         scroll-behavior: smooth;
-        font-family: var(--font-rounded-sans);
+        font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", "Book Antiqua", serif;
         font-size: clamp(1rem, 2.5vw, 1.25rem);
+        min-height: 100svh;
+        background:
+          radial-gradient(1200px 600px at 20% 0%, rgba(14, 165, 233, 0.12), transparent 60%),
+          radial-gradient(1000px 500px at 90% 10%, rgba(124, 45, 18, 0.12), transparent 60%),
+          var(--bg);
+        display: grid;
+        place-items: center;
+        padding: 48px 20px 64px;
       }
       h1 {
         font-size: clamp(2rem, 5vw, 3.5rem);
         font-weight: 700;
         line-height: 1.2;
-        margin: 1rem 0;
-        color: var(--text-color-1);
+        margin: 0;
+        margin-top: 1rem;
+        color: var(--accent);
+        letter-spacing: 0.04em;
       }
       h3 {
         font-size: clamp(1.25rem, 3vw, 2rem);
         font-weight: 600;
         line-height: 1.3;
         margin: 0.75rem 0;
-        color: var(--text-color-3);
+        color: var(--accent-2);
       }
       h4 {
         font-size: clamp(1.125rem, 2.5vw, 1.5rem);
         font-weight: 500;
         line-height: 1.4;
         margin: 0.5rem 0;
-        color: var(--text-color-4);
+        color: var(--accent-3);
       }
       a {
         color: var(--link-text-color);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
       }
-      .parent {
-        display: grid;
-        grid-template-columns: 1fr min(80ch, calc(100% - 16px)) 1fr;
-        grid-column-gap: 8px;
-        place-items: center;
-        height: 100vh;
+      a:hover,
+      a:focus-visible {
+        border-color: currentColor;
       }
-      .parent > * {
-        grid-column: 2;
+      .panel {
+        background: var(--panel);
+        border-radius: 24px;
+        padding: clamp(20px, 4vw, 40px);
+        box-shadow: 0 24px 60px -30px var(--shadow);
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        position: relative;
+        overflow: hidden;
+        width: min(90ch, 100%);
       }
-      div:not(.parent) {
+      .panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(120deg, rgba(14, 165, 233, 0.16), transparent 55%),
+          linear-gradient(300deg, rgba(124, 45, 18, 0.08), transparent 55%);
+        opacity: 0.6;
+        pointer-events: none;
+      }
+      .panel > * {
+        position: relative;
+      }
+      .headline {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
       }
       ul {
         list-style: none;
@@ -143,74 +173,174 @@
         display: flex;
         gap: 8px;
         flex-wrap: wrap;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.85em;
+      }
+      ul li a {
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(14, 116, 144, 0.08);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .icon {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      ol {
+        padding-left: 20px;
+      }
+      p {
+        max-width: 70ch;
       }
       button {
-        -webkit-appearance: none; /* Needed for mobile */
-        font-size: 24px;
-        width: 36px;
-        height: 36px;
-        border: 1px solid var(--fg);
-        border-radius: 50%;
-        corner-shape: squircle;
-        background: transparent;
+        -webkit-appearance: none;
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(15, 23, 42, 0.2);
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.08);
         cursor: pointer;
-        box-shadow: 0px 2px 2px #000000;
+        box-shadow: 0 8px 20px -12px var(--shadow);
+        transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+      }
+      button:hover,
+      button:focus-visible {
+        transform: translateY(-1px);
+        border-color: var(--ring);
+        box-shadow: 0 12px 26px -12px var(--shadow);
+      }
+      footer {
+        margin-top: 32px;
+        font-size: 0.9em;
+        opacity: 0.8;
+        text-align: center;
+      }
+      .reveal {
+        animation: fadeUp 600ms ease both;
+      }
+      .reveal:nth-of-type(2) {
+        animation-delay: 80ms;
+      }
+      .reveal:nth-of-type(3) {
+        animation-delay: 140ms;
+      }
+      .reveal:nth-of-type(4) {
+        animation-delay: 200ms;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          animation: none;
+        }
+        button,
+        a {
+          transition: none;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="parent">
-      <aside></aside>
-      <main>
-        <div>
-          <h1>RAKSHITH NETTAR</h1>
-          <button id="theme-toggle" class="toggle" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
-        </div>
-        <ul>
-          <li><a rel="noopener noreferrer" target="_blank" href="https://twitter.com/rakshithbellare">Twitter</a></li>
-          <li><a rel="noopener noreferrer" target="_blank" href="https://linkedin.com/in/rakshithbellare/">Linkedin</a></li>
-          <li><a rel="noopener noreferrer" target="_blank" href="https://github.com/RakshithNM">Github</a></li>
-          <li><a rel="noopener noreferrer" target="_blank" href="https://codepen.io/RakshithNM">Codepen</a></li>
-          <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/">Blog</a></li>
-          <li><a rel="noopener noreferrer" target="_blank" href="https://til.rakshithnettar.com/">TIL</a></li>
-        </ul>
-        </ul>
-        <h3>Senior Software Engineer - NUITEQ</h3>
-        <p>NUITEQ® is a collaborative software company that enables teams, organizations, educational institutions, and businesses to add value through smarter human interaction.</p>
-        <p>At Nuiteq, I build software that enhances learning outcomes for kids, improves teacher efficiency and also enhances collaboration in business. I work on user interfaces and features that is being used by schools and businesses around the world in over 70 countries.</p>
-        <h3>Previous, Intern - INMOBI</h3>
-        <h4>Few posts from my blog</h4>
-        <ol>
-          <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/psuedo-localization-tool/">Psuedolocalization tool</a></li>
-          <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/vim-fun/">Vim fun</a></li>
-          <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/automating-html-generation-using-nodejs/">Automating html generation using nodejs</a></li>
-        </ol>
-        <footer>
-          <p style="text-align: center">© 2025 Rakshith Bellare</p>
-        </footer>
-      </main>
-      <aside></aside>
-    </div>
+    <main class="panel">
+      <div class="headline reveal">
+        <h1>RAKSHITH NETTAR</h1>
+        <button id="theme-toggle" class="toggle" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
+      </div>
+      <ul class="reveal">
+        <li>
+          <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/rakshithbellare">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4l3 4 4-4h5l-6.5 7.5L20 20h-4l-4-5-4.5 5H4l6.8-7.9z"/></svg>
+            Twitter
+          </a>
+        </li>
+        <li>
+          <a rel="noopener noreferrer" target="_blank" href="https://linkedin.com/in/rakshithbellare/">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v11M4 5v.5M9 9v11M9 13c0-2.2 1.8-4 4-4s4 1.8 4 4v6"/></svg>
+            Linkedin
+          </a>
+        </li>
+        <li>
+          <a rel="noopener noreferrer" target="_blank" href="https://github.com/RakshithNM">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-3 1-3-2-5-2M9 22v-3.2c0-1 .4-1.6 1-2-3.3-.4-5-1.9-5-4.6 0-1.1.4-2.1 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1 1.8-.5 3.9-.5 5.7 0 2.1-1.3 3-1 3-1 .6 1.5.2 2.6.1 2.9.7.9 1.1 1.9 1.1 3 0 2.7-1.7 4.2-5 4.6.6.5 1 1.2 1 2V22"/></svg>
+            Github
+          </a>
+        </li>
+        <li>
+          <a rel="noopener noreferrer" target="_blank" href="https://codepen.io/RakshithNM">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l8 5-8 5-8-5z"/><path d="M12 14l8 5-8 5-8-5z"/><path d="M4 9v6m16-6v6m-8-5v4"/></svg>
+            Codepen
+          </a>
+        </li>
+        <li>
+          <a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h8l4 4v10H6z"/><path d="M14 5v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+            Blog
+          </a>
+        </li>
+        <li>
+          <a rel="noopener noreferrer" target="_blank" href="https://til.rakshithnettar.com/">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h10l4 4v8a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M15 6v4h4"/><path d="M8 13h8"/></svg>
+            TIL
+          </a>
+        </li>
+      </ul>
+      <h3 class="reveal">Senior Software Engineer - NUITEQ</h3>
+      <p>NUITEQ® is a collaborative software company that enables teams, organizations, educational institutions, and businesses to add value through smarter human interaction.</p>
+      <p>At Nuiteq, I build software that enhances learning outcomes for kids, improves teacher efficiency and also enhances collaboration in business. I work on user interfaces and features that is being used by schools and businesses around the world in over 70 countries.</p>
+      <h3 class="reveal">Previous, Intern - INMOBI</h3>
+      <h4 class="reveal">Few posts from my blog</h4>
+      <ol>
+        <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/psuedo-localization-tool/">Psuedolocalization tool</a></li>
+        <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/vim-fun/">Vim fun</a></li>
+        <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/automating-html-generation-using-nodejs/">Automating html generation using nodejs</a></li>
+      </ol>
+      <footer>
+        <p>© 2025 Rakshith Bellare</p>
+      </footer>
+    </main>
     <script>
-      (function () {
-        const key = 'theme';
-        const btn = document.getElementById('theme-toggle');
-
-        function setTheme(theme) {
-          document.documentElement.dataset.theme = theme;
-          document.documentElement.style.colorScheme = theme;
-          localStorage.setItem(key, theme);
-          const isDark = theme === 'dark';
-          btn.setAttribute('aria-pressed', String(isDark));
-          btn.textContent = isDark ? '☀️' : '🌙';
-        }
-
-        // Initialize button label/state
-        setTheme(document.documentElement.dataset.theme);
-
-        btn.addEventListener('click', () => {
-          const current = document.documentElement.dataset.theme;
-          setTheme(current === 'dark' ? 'light' : 'dark');
+      (() => {
+        const d = document.documentElement;
+        const b = document.getElementById('theme-toggle');
+        const m = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches : false;
+        const get = () => {
+          let t;
+          try {
+            t = localStorage.getItem('theme');
+          } catch (e) {}
+          return t || (m ? 'dark' : 'light');
+        };
+        const set = (t) => {
+          d.dataset.theme = t;
+          d.style.colorScheme = t;
+          try {
+            localStorage.setItem('theme', t);
+          } catch (e) {}
+          const isDark = t === 'dark';
+          b.setAttribute('aria-pressed', String(isDark));
+          b.textContent = isDark ? '☀️' : '🌙';
+        };
+        set(get());
+        b.addEventListener('click', () => {
+          set(d.dataset.theme === 'dark' ? 'light' : 'dark');
         });
       })();
     </script>
