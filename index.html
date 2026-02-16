@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="Rakshith Nettar's work and projects">
     <meta name="twitter:image" content="https://rakshithnettar.com/meta.jpg">
     <link rel="canonical" href="https://rakshithnettar.com/">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐙</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <script>
       (() => {
         const d = document.documentElement;
@@ -198,9 +198,6 @@
       ol {
         padding-left: 20px;
       }
-      p {
-        max-width: 70ch;
-      }
       button {
         -webkit-appearance: none;
         font-size: 20px;
@@ -304,7 +301,7 @@
       </ul>
       <h3 class="reveal">Senior Software Engineer - NUITEQ</h3>
       <p>NUITEQ® is a collaborative software company that enables teams, organizations, educational institutions, and businesses to add value through smarter human interaction.</p>
-      <p>At Nuiteq, I build software that enhances learning outcomes for kids, improves teacher efficiency and also enhances collaboration in business. I work on user interfaces and features that is being used by schools and businesses around the world in over 70 countries.</p>
+      <p>At NUITEQ, I build software that enhances learning outcomes for kids, improves teacher efficiency, and strengthens collaboration in business. Over the past 9 years, I have worked on frontend UI design, animations, distributed systems, and real-time collaboration software used by schools and businesses around the world in over 70 countries.</p>
       <h3 class="reveal">Previous, Intern - INMOBI</h3>
       <h4 class="reveal">Few posts from my blog</h4>
       <ol>
@@ -313,13 +310,14 @@
         <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/automating-html-generation-using-nodejs/">Automating html generation using nodejs</a></li>
       </ol>
       <footer>
-        <p>© 2025 Rakshith Bellare</p>
+        <p>© <span id="footer-year"></span> Rakshith Bellare</p>
       </footer>
     </main>
     <script>
       (() => {
         const d = document.documentElement;
         const b = document.getElementById('theme-toggle');
+        const y = document.getElementById('footer-year');
         const m = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches : false;
         const get = () => {
           let t;
@@ -339,6 +337,7 @@
           b.textContent = isDark ? '☀️' : '🌙';
         };
         set(get());
+        if (y) y.textContent = String(new Date().getFullYear());
         b.addEventListener('click', () => {
           set(d.dataset.theme === 'dark' ? 'light' : 'dark');
         });
