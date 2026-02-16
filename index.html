@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>RAKSHITH NETTAR</title>
-    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Rakshith Nettar">
     <meta name="description" content="Rakshith Nettar">
     <meta name="theme-color" content="#011627">
@@ -26,6 +26,8 @@
     <meta name="twitter:image" content="https://rakshithnettar.com/meta.jpg">
     <link rel="canonical" href="https://rakshithnettar.com/">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.bunny.net/">
+    <link href="https://fonts.bunny.net/css?family=sora:300,400,500,600,700" rel="stylesheet">
     <script>
       (() => {
         const d = document.documentElement;
@@ -50,6 +52,8 @@
         --ring: #0ea5e9;
         --shadow: rgba(15, 23, 42, 0.14);
         --link-text-color: #0f766e;
+        --content-font: "Sora", "Helvetica Neue", sans-serif;
+        --display-font: "Sora", "Helvetica Neue", sans-serif;
         color-scheme: light dark;
       }
       :root[data-theme="light"] {
@@ -91,7 +95,7 @@
         margin: 0;
         line-height: 1.5;
         scroll-behavior: smooth;
-        font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", "Book Antiqua", serif;
+        font-family: var(--content-font);
         font-size: clamp(1rem, 2.5vw, 1.25rem);
         min-height: 100svh;
         background:
@@ -103,6 +107,7 @@
         padding: 48px 20px 64px;
       }
       h1 {
+        font-family: var(--display-font);
         font-size: clamp(2rem, 5vw, 3.5rem);
         font-weight: 700;
         line-height: 1.2;
@@ -112,6 +117,7 @@
         letter-spacing: 0.04em;
       }
       h3 {
+        font-family: var(--display-font);
         font-size: clamp(1.25rem, 3vw, 2rem);
         font-weight: 600;
         line-height: 1.3;
@@ -119,6 +125,7 @@
         color: var(--accent-2);
       }
       h4 {
+        font-family: var(--display-font);
         font-size: clamp(1.125rem, 2.5vw, 1.5rem);
         font-weight: 500;
         line-height: 1.4;
@@ -143,7 +150,7 @@
         border: 1px solid rgba(15, 23, 42, 0.12);
         position: relative;
         overflow: hidden;
-        width: min(90ch, 100%);
+        width: min(70ch, 100%);
       }
       .panel::before {
         content: "";
@@ -176,7 +183,7 @@
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.08em;
-        font-size: 0.85em;
+        font-size: 0.9em;
       }
       ul li a {
         padding: 6px 10px;
@@ -218,9 +225,18 @@
       }
       footer {
         margin-top: 32px;
-        font-size: 0.9em;
+        font-size: 0.95em;
         opacity: 0.8;
         text-align: center;
+      }
+      @media (max-width: 640px) {
+        ul {
+          font-size: 0.95em;
+          letter-spacing: 0.06em;
+        }
+        footer {
+          font-size: 1em;
+        }
       }
       .reveal {
         animation: fadeUp 600ms ease both;
