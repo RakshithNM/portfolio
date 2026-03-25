@@ -205,6 +205,19 @@
       ol {
         padding-left: 20px;
       }
+      .content-columns {
+        display: grid;
+        gap: 24px;
+      }
+      .content-columns section {
+        min-width: 0;
+      }
+      .content-columns h4 {
+        margin-top: 0;
+      }
+      .content-columns ol {
+        margin: 0;
+      }
       button {
         -webkit-appearance: none;
         font-size: 20px;
@@ -236,6 +249,12 @@
         }
         footer {
           font-size: 1em;
+        }
+      }
+      @media (min-width: 860px) {
+        .content-columns {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          align-items: start;
         }
       }
       .reveal {
@@ -319,12 +338,31 @@
       <p>NUITEQ® is a collaborative software company that enables teams, organizations, educational institutions, and businesses to add value through smarter human interaction.</p>
       <p>At NUITEQ, I build software that enhances learning outcomes for kids, improves teacher efficiency, and strengthens collaboration in business. Over the past 9 years, I have worked on frontend UI design, animations, distributed systems, and real-time collaboration software used by schools and businesses around the world in over 70 countries.</p>
       <h3 class="reveal">Previous, Intern - INMOBI</h3>
-      <h4 class="reveal">Few posts from my blog</h4>
-      <ol>
-        <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/psuedo-localization-tool/">Psuedolocalization tool</a></li>
-        <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/vim-fun/">Vim fun</a></li>
-        <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/automating-html-generation-using-nodejs/">Automating html generation using nodejs</a></li>
-      </ol>
+      <div class="content-columns">
+        <section>
+          <h4 class="reveal">Few posts from my blog</h4>
+          <ol>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/psuedo-localization-tool/">Psuedolocalization tool</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/vim-fun/">Vim fun</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://blog.rakshithnettar.com/automating-html-generation-using-nodejs/">Automating html generation using nodejs</a></li>
+          </ol>
+        </section>
+        <section>
+          <h4 class="reveal">Projects</h4>
+          <ol>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://karnaughmaps.rakshithnettar.com">Karnaugh Maps</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://subcalc.rakshithnettar.com">Subscription Calculator</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://calculators.rakshithnettar.com">Financial Calculators</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://ingredientsdictionary.rakshithnettar.com/">Ingredients Dictionary</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://splitclever.rakshithnettar.com/">Expense Splitting</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://github.com/RakshithNM/logdebug.nvim">VIM Logging Plugin</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://pernekshetra.com/">Temple Website</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://ganigapremierleague.com/">Cricket League Website</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://ganigasanghadk.com/">Community Website</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://arivugg.com/">Tech Team Website</a></li>
+          </ol>
+        </section>
+      </div>
       <footer>
         <p>© <span id="footer-year"></span> Rakshith Bellare</p>
       </footer>
