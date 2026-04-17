@@ -1,0 +1,60 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/mcp-server-card/v1.json",
+  "version": "1.0",
+  "protocolVersion": "2025-11-25",
+  "serverInfo": {
+    "name": "rakshithnettar-mcp",
+    "title": "Rakshith Nettar MCP Server",
+    "version": "1.0.0"
+  },
+  "description": "Read-only MCP server exposing Rakshith Nettar public profile metadata and API catalog discovery resources.",
+  "documentationUrl": "https://rakshithnettar.com/.well-known/mcp/docs.html",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://rakshithnettar.com/mcp"
+  },
+  "capabilities": {
+    "resources": {},
+    "tools": {}
+  },
+  "authentication": {
+    "required": false,
+    "schemes": []
+  },
+  "resources": [
+    {
+      "uri": "profile://public-profile",
+      "name": "public_profile",
+      "title": "Public Profile",
+      "description": "Public profile metadata for Rakshith Nettar.",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "profile://api-catalog",
+      "name": "api_catalog",
+      "title": "API Catalog",
+      "description": "RFC 9727 API catalog for this site.",
+      "mimeType": "application/linkset+json"
+    }
+  ],
+  "tools": [
+    {
+      "name": "get_profile",
+      "title": "Get Public Profile",
+      "description": "Return Rakshith Nettar public profile metadata.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_api_catalog",
+      "title": "Get API Catalog",
+      "description": "Return the RFC 9727 API catalog published by this site.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false
+      }
+    }
+  ]
+}

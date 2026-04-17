@@ -1,0 +1,132 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Rakshith Nettar Profile API",
+    "version": "1.0.0",
+    "summary": "A small public API that returns profile metadata for rakshithnettar.com.",
+    "description": "Static JSON API for automated discovery of profile information and public links. This API is public and does not require OAuth 2.0 or OpenID Connect authentication."
+  },
+  "servers": [
+    {
+      "url": "https://rakshithnettar.com"
+    }
+  ],
+  "paths": {
+    "/.well-known/profile-api/profile.json": {
+      "get": {
+        "operationId": "getProfile",
+        "summary": "Get public profile metadata",
+        "description": "Public endpoint. No authentication is required.",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Profile metadata response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "name",
+                    "role",
+                    "company",
+                    "summary",
+                    "profiles",
+                    "website",
+                    "updated"
+                  ],
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string"
+                    },
+                    "company": {
+                      "type": "string"
+                    },
+                    "summary": {
+                      "type": "string"
+                    },
+                    "profiles": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "website": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "updated": {
+                      "type": "string",
+                      "format": "date"
+                    }
+                  }
+                },
+                "example": {
+                  "name": "Rakshith Nettar",
+                  "role": "Senior Software Engineer",
+                  "company": "NUITEQ",
+                  "summary": "I build software that improves learning outcomes, teacher efficiency, and collaboration.",
+                  "profiles": {
+                    "github": "https://github.com/RakshithNM",
+                    "linkedin": "https://linkedin.com/in/rakshithbellare/"
+                  },
+                  "website": "https://rakshithnettar.com/",
+                  "updated": "2026-04-18"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/profile-api/status.json": {
+      "get": {
+        "operationId": "getProfileApiStatus",
+        "summary": "Get profile API health status",
+        "description": "Public endpoint. No authentication is required.",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "API health response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "service",
+                    "version",
+                    "endpoint",
+                    "checked_at"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "service": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    },
+                    "endpoint": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "checked_at": {
+                      "type": "string",
+                      "format": "date"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

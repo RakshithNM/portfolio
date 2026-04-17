@@ -1,0 +1,34 @@
+/
+  Content-Signal: search=yes, ai-input=yes, ai-train=no
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
+  Link: </.well-known/service-meta.json>; rel="service-meta"; type="application/json"
+  Link: </sitemap.xml>; rel="describedby"; type="application/xml"
+  Link: </robots.txt>; rel="describedby"; type="text/plain"
+
+/index.html
+  Content-Signal: search=yes, ai-input=yes, ai-train=no
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
+  Link: </.well-known/service-meta.json>; rel="service-meta"; type="application/json"
+  Link: </sitemap.xml>; rel="describedby"; type="application/xml"
+  Link: </robots.txt>; rel="describedby"; type="text/plain"
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
+
+/.well-known/profile-api/profile.json
+  Link: </.well-known/profile-api/openapi.json>; rel="service-desc"; type="application/vnd.oai.openapi+json;version=3.1"
+  Link: </.well-known/profile-api/docs.html>; rel="service-doc"; type="text/html"
+  Link: </.well-known/profile-api/status.json>; rel="status"; type="application/json"
+
+/.well-known/profile-api/openapi.json
+  Content-Type: application/vnd.oai.openapi+json;version=3.1
+
+/.well-known/mcp/server-card.json
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, OPTIONS
+  Access-Control-Allow-Headers: Content-Type
+  Cache-Control: public, max-age=3600
+
+/.well-known/mcp/docs.html
+  Cache-Control: public, max-age=3600

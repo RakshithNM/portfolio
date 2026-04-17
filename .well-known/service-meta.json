@@ -1,0 +1,19 @@
+{
+  "name": "Rakshith Nettar",
+  "homepage": "https://rakshithnettar.com/",
+  "description": "Personal portfolio site for Rakshith Nettar.",
+  "resources": {
+    "sitemap": "https://rakshithnettar.com/sitemap.xml",
+    "robots": "https://rakshithnettar.com/robots.txt",
+    "canonical": "https://rakshithnettar.com/",
+    "apiCatalog": "https://rakshithnettar.com/.well-known/api-catalog",
+    "profileApi": "https://rakshithnettar.com/.well-known/profile-api/profile.json",
+    "mcpServerCard": "https://rakshithnettar.com/.well-known/mcp/server-card.json",
+    "mcpEndpoint": "https://rakshithnettar.com/mcp"
+  },
+  "profiles": {
+    "github": "https://github.com/RakshithNM",
+    "linkedin": "https://linkedin.com/in/rakshithbellare/",
+    "x": "https://twitter.com/rakshithbellare"
+  }
+}

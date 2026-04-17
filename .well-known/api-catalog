@@ -1,0 +1,28 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://rakshithnettar.com/.well-known/profile-api/profile.json",
+      "service-desc": [
+        {
+          "href": "https://rakshithnettar.com/.well-known/profile-api/openapi.json",
+          "type": "application/vnd.oai.openapi+json;version=3.1",
+          "title": "Profile API OpenAPI description"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://rakshithnettar.com/.well-known/profile-api/docs.html",
+          "type": "text/html",
+          "title": "Profile API documentation"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://rakshithnettar.com/.well-known/profile-api/status.json",
+          "type": "application/json",
+          "title": "Profile API status"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rakshith Nettar Profile API</title>
+    <meta name="description" content="Human-readable documentation for the Rakshith Nettar Profile API.">
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f5f2ea;
+        --fg: #1c1b1a;
+        --panel: #fbf8f1;
+        --accent: #0b3d91;
+        --border: rgba(15, 23, 42, 0.12);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0b1120;
+          --fg: #eef2ff;
+          --panel: #0f172a;
+          --accent: #93c5fd;
+          --border: rgba(148, 163, 184, 0.2);
+        }
+      }
+      body {
+        margin: 0;
+        font: 16px/1.6 "Sora", "Helvetica Neue", sans-serif;
+        background: var(--bg);
+        color: var(--fg);
+        padding: 32px 16px 48px;
+      }
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 24px;
+      }
+      h1, h2 {
+        color: var(--accent);
+      }
+      code, pre {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      pre {
+        overflow: auto;
+        padding: 16px;
+        border-radius: 12px;
+        background: rgba(15, 23, 42, 0.08);
+      }
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Rakshith Nettar Profile API</h1>
+      <p>This API publishes a small amount of public profile metadata in JSON for automated consumers.</p>
+
+      <h2>Endpoint</h2>
+      <p><a href="/.well-known/profile-api/profile.json">GET /.well-known/profile-api/profile.json</a></p>
+
+      <h2>Authentication</h2>
+      <p>No authentication is required. This API is public and does not publish OAuth 2.0 or OpenID Connect discovery metadata.</p>
+
+      <h2>Status</h2>
+      <p><a href="/.well-known/profile-api/status.json">GET /.well-known/profile-api/status.json</a></p>
+
+      <h2>OpenAPI Description</h2>
+      <p><a href="/.well-known/profile-api/openapi.json">/.well-known/profile-api/openapi.json</a></p>
+
+      <h2>Example Response</h2>
+      <pre>{
+  "name": "Rakshith Nettar",
+  "role": "Senior Software Engineer",
+  "company": "NUITEQ",
+  "summary": "I build software that improves learning outcomes, teacher efficiency, and collaboration.",
+  "profiles": {
+    "github": "https://github.com/RakshithNM",
+    "linkedin": "https://linkedin.com/in/rakshithbellare/",
+    "x": "https://twitter.com/rakshithbellare",
+    "blog": "https://blog.rakshithnettar.com/",
+    "til": "https://til.rakshithnettar.com/"
+  },
+  "website": "https://rakshithnettar.com/",
+  "updated": "2026-04-18"
+}</pre>
+    </main>
+  </body>
+</html>

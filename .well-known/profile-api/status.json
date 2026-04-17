@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "service": "profile-api",
+  "version": "1.0.0",
+  "endpoint": "https://rakshithnettar.com/.well-known/profile-api/profile.json",
+  "checked_at": "2026-04-18"
+}
