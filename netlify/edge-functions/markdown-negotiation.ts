@@ -1,4 +1,4 @@
-import { createMarkdownResponse, requestAcceptsMarkdown } from './markdown-response.mjs';
+import { createMarkdownResponse, requestAcceptsMarkdown } from '../lib/markdown-response.mjs';
 
 export default async (request: Request, context: { next: () => Promise<Response> }) => {
   const { pathname } = new URL(request.url);

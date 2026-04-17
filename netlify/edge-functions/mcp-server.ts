@@ -1,4 +1,4 @@
-import { handleMcpRequest } from './mcp-core.mjs';
+import { handleMcpRequest } from '../lib/mcp-core.mjs';
 
 export default async (request: Request) => handleMcpRequest(request);
 
