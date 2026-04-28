@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Rakshith Nettar">
     <meta name="description" content="Rakshith Nettar">
-    <meta name="theme-color" content="#011627">
+    <meta name="theme-color" content="#f8f8f8">
     <meta name="color-scheme" content="light dark">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rakshithnettar.com/">
@@ -27,11 +27,12 @@
     <link rel="canonical" href="https://rakshithnettar.com/">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.bunny.net/">
-    <link href="https://fonts.bunny.net/css?family=sora:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.bunny.net/css?family=atkinson-hyperlegible:400,700%7Cred-hat-display:900" rel="stylesheet">
     <script>
       (() => {
         const d = document.documentElement;
         const m = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches : false;
+        const c = document.querySelector('meta[name="theme-color"]');
         let t;
         try {
           t = localStorage.getItem('theme');
@@ -39,49 +40,59 @@
         t = t || (m ? 'dark' : 'light');
         d.dataset.theme = t;
         d.style.colorScheme = t;
+        if (c) {
+          c.setAttribute('content', t === 'dark' ? '#2e2e2e' : '#f8f8f8');
+        }
       })();
     </script>
     <style>
       :root {
-        --bg: #f5f2ea;
-        --fg: #1c1b1a;
-        --panel: #fbf8f1;
-        --accent: #0b3d91;
-        --accent-2: #7c2d12;
-        --accent-3: #14532d;
-        --ring: #0ea5e9;
-        --shadow: rgba(15, 23, 42, 0.14);
-        --link-text-color: #0f766e;
-        --content-font: "Sora", "Helvetica Neue", sans-serif;
-        --display-font: "Sora", "Helvetica Neue", sans-serif;
+        --bg: #f8f8f8;
+        --fg: #2e2e2e;
+        --panel: #fbfbfb;
+        --panel-border: #e4e4e4;
+        --text-accent: #3a3a3a;
+        --accent: #dd4462;
+        --accent-2: #4467dd;
+        --accent-3: #fbbe25;
+        --ring: #dd4462;
+        --shadow: rgba(0, 0, 0, 0.12);
+        --content-font: "Atkinson Hyperlegible", system-ui, sans-serif;
+        --display-font: "Red Hat Display", "Helvetica Neue", Arial, sans-serif;
+        --tracking: -0.04ch;
+        --tracking-display: -0.075ch;
+        --gradient-conic: conic-gradient(var(--accent) 0 28%, var(--accent-2) 0 67%, var(--accent-3) 0 100%);
+        --gradient-rainbow: linear-gradient(90deg, #cf4662 10%, #fbbe25 30%, #62c95c 50%, #08bccb 75%, #a977d5 90%);
         color-scheme: light dark;
       }
       :root[data-theme="light"] {
         color-scheme: light;
       }
       :root[data-theme="dark"] {
-        --bg: #0b1120;
-        --fg: #eef2ff;
-        --panel: #0f172a;
-        --accent: #93c5fd;
-        --accent-2: #fcd34d;
-        --accent-3: #6ee7b7;
-        --ring: #38bdf8;
-        --shadow: rgba(15, 23, 42, 0.6);
-        --link-text-color: #a7f3d0;
+        --bg: #2e2e2e;
+        --fg: #f8f8f8;
+        --panel: #333333;
+        --panel-border: #484848;
+        --text-accent: #d1d1d1;
+        --accent: #ce5769;
+        --accent-2: #4d6cc8;
+        --accent-3: #f1c15b;
+        --ring: #f1c15b;
+        --shadow: rgba(0, 0, 0, 0.35);
         color-scheme: dark;
       }
       @media (prefers-color-scheme: dark) {
         :root:not([data-theme]) {
-          --bg: #0b1120;
-          --fg: #eef2ff;
-          --panel: #0f172a;
-          --accent: #93c5fd;
-          --accent-2: #fcd34d;
-          --accent-3: #6ee7b7;
-          --ring: #38bdf8;
-          --shadow: rgba(15, 23, 42, 0.6);
-          --link-text-color: #a7f3d0;
+          --bg: #2e2e2e;
+          --fg: #f8f8f8;
+          --panel: #333333;
+          --panel-border: #484848;
+          --text-accent: #d1d1d1;
+          --accent: #ce5769;
+          --accent-2: #4d6cc8;
+          --accent-3: #f1c15b;
+          --ring: #f1c15b;
+          --shadow: rgba(0, 0, 0, 0.35);
         }
       }
       html {
@@ -96,11 +107,11 @@
         line-height: 1.5;
         scroll-behavior: smooth;
         font-family: var(--content-font);
-        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        font-size: clamp(1rem, 2.1vw, 1.2rem);
+        letter-spacing: var(--tracking);
         min-height: 100svh;
         background:
-          radial-gradient(1200px 600px at 20% 0%, rgba(14, 165, 233, 0.12), transparent 60%),
-          radial-gradient(1000px 500px at 90% 10%, rgba(124, 45, 18, 0.12), transparent 60%),
+          radial-gradient(960px 360px at 50% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 65%),
           var(--bg);
         display: grid;
         place-items: center;
@@ -108,58 +119,72 @@
       }
       h1 {
         font-family: var(--display-font);
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        font-weight: 700;
-        line-height: 1.2;
+        font-size: clamp(2.4rem, 7vw, 4.6rem);
+        font-weight: 900;
+        line-height: 1.02;
         margin: 0;
-        margin-top: 1rem;
-        color: var(--accent);
-        letter-spacing: 0.04em;
+        margin-top: 0.35rem;
+        color: var(--fg);
+        letter-spacing: var(--tracking-display);
+        text-wrap: balance;
       }
       h3 {
         font-family: var(--display-font);
-        font-size: clamp(1.25rem, 3vw, 2rem);
-        font-weight: 600;
-        line-height: 1.3;
-        margin: 0.75rem 0;
-        color: var(--accent-2);
+        font-size: clamp(1.4rem, 3vw, 2.1rem);
+        font-weight: 900;
+        line-height: 1.15;
+        margin: 1.25rem 0 0.65rem;
+        color: var(--accent);
+        letter-spacing: var(--tracking-display);
       }
       h4 {
         font-family: var(--display-font);
-        font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-        font-weight: 500;
-        line-height: 1.4;
+        font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+        font-weight: 900;
+        line-height: 1.15;
         margin: 0.5rem 0;
-        color: var(--accent-3);
+        color: var(--accent-2);
+        letter-spacing: var(--tracking-display);
+      }
+      p {
+        color: var(--text-accent);
       }
       a {
-        color: var(--link-text-color);
-        text-decoration: none;
-        border-bottom: 1px solid transparent;
-        transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+        color: inherit;
+        text-decoration-thickness: 0.15ex;
+        text-underline-offset: 0.22ch;
+        transition: color 160ms ease, transform 160ms ease, border-color 160ms ease, background-color 160ms ease;
       }
       a:hover,
       a:focus-visible {
-        border-color: currentColor;
+        color: var(--accent);
       }
       .panel {
         background: var(--panel);
-        border-radius: 24px;
+        border-radius: 28px;
         padding: clamp(20px, 4vw, 40px);
-        box-shadow: 0 24px 60px -30px var(--shadow);
-        border: 1px solid rgba(15, 23, 42, 0.12);
+        box-shadow: 0 28px 60px -36px var(--shadow);
+        border: 1px solid var(--panel-border);
         position: relative;
         overflow: hidden;
-        width: min(70ch, 100%);
+        width: min(76ch, 100%);
       }
       .panel::before {
         content: "";
         position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(120deg, rgba(14, 165, 233, 0.16), transparent 55%),
-          linear-gradient(300deg, rgba(124, 45, 18, 0.08), transparent 55%);
-        opacity: 0.6;
+        inset: 0 0 auto;
+        height: 6px;
+        background: var(--gradient-rainbow);
+      }
+      .panel::after {
+        content: "";
+        position: absolute;
+        inset: auto -10% -20% auto;
+        width: 260px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent 68%);
+        opacity: 0.75;
         pointer-events: none;
       }
       .panel > * {
@@ -169,7 +194,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 16px;
         flex-wrap: wrap;
         margin-bottom: 1rem;
       }
@@ -178,20 +202,28 @@
         margin: 0;
         padding: 0;
         display: flex;
-        gap: 8px;
+        gap: 10px;
         flex-wrap: wrap;
-        font-weight: 600;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
-        font-size: 0.9em;
+        letter-spacing: 0.04ch;
+        font-size: 0.82em;
       }
       ul li a {
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: rgba(14, 116, 144, 0.08);
+        padding: 0.42rem 0.75rem 0.34rem;
+        border-radius: 0.3rem;
+        border: 2px solid var(--fg);
+        background: var(--bg);
+        color: var(--fg);
         display: inline-flex;
         align-items: center;
         gap: 6px;
+        text-decoration: none;
+      }
+      ul li a:hover,
+      ul li a:focus-visible {
+        background: var(--fg);
+        color: var(--bg);
       }
       .icon {
         width: 14px;
@@ -220,26 +252,41 @@
       }
       button {
         -webkit-appearance: none;
-        font-size: 20px;
-        width: 40px;
-        height: 40px;
-        border: 1px solid rgba(15, 23, 42, 0.2);
-        border-radius: 999px;
-        background: rgba(15, 23, 42, 0.08);
+        font: inherit;
+        font-size: 0.92rem;
+        min-width: 2.8rem;
+        height: 2.8rem;
+        padding: 0 0.8rem;
+        border: 2px solid var(--fg);
+        border-radius: 0.3rem;
+        background: var(--bg);
+        color: var(--fg);
         cursor: pointer;
-        box-shadow: 0 8px 20px -12px var(--shadow);
+        box-shadow: none;
         transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
       }
       button:hover,
       button:focus-visible {
         transform: translateY(-1px);
         border-color: var(--ring);
-        box-shadow: 0 12px 26px -12px var(--shadow);
+        box-shadow: 0 18px 28px -24px var(--shadow);
+      }
+      .gradient-text {
+        background-image: var(--gradient-conic);
+        background-size: 50%;
+        padding: 0.2rem 0 0.45rem;
+      }
+      .gradient-text,
+      .gradient-text-linear {
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
       }
       footer {
         margin-top: 32px;
         font-size: 0.95em;
-        opacity: 0.8;
+        color: var(--text-accent);
+        opacity: 0.88;
         text-align: center;
       }
       @media (max-width: 640px) {
@@ -293,7 +340,7 @@
   <body>
     <main class="panel">
       <div class="headline reveal">
-        <h1>RAKSHITH NETTAR</h1>
+        <h1 class="gradient-text">RAKSHITH NETTAR</h1>
         <button id="theme-toggle" class="toggle" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
       </div>
       <ul class="reveal">
@@ -373,6 +420,7 @@
         const d = document.documentElement;
         const b = document.getElementById('theme-toggle');
         const y = document.getElementById('footer-year');
+        const c = document.querySelector('meta[name="theme-color"]');
         const linkElements = Array.from(document.querySelectorAll('a[data-webmcp-name]'));
         const m = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches : false;
         const get = () => {
@@ -390,7 +438,11 @@
           } catch (e) {}
           const isDark = t === 'dark';
           b.setAttribute('aria-pressed', String(isDark));
+          b.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
           b.textContent = isDark ? '☀️' : '🌙';
+          if (c) {
+            c.setAttribute('content', isDark ? '#2e2e2e' : '#f8f8f8');
+          }
         };
         const linkCatalog = linkElements.map((link) => ({
           name: link.dataset.webmcpName,
